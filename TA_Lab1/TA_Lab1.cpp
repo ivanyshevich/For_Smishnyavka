@@ -3,51 +3,45 @@
 #include <iterator>
 #include <iostream>
 #include <vector>
+#include <numeric>
 
 using namespace std;
 
-int findGCD(vector<int>& nums) {
-    int minimum = nums[0], maximum = nums[0];
-    for (int i = 1; i < nums.size(); i++)
-    {
-        minimum = min(minimum, nums[i]);
-        maximum = max(maximum, nums[i]);
-    }
+int gcd(int a, int b)
+{
+    if (a == 0)
+        return b;
+    return gcd(b % a, a);
+}
 
-    int gcd = 1;
-    for (int i = 1; i <= minimum; i++)
-    {
-        if (minimum % i == 0 && maximum % i == 0)
-            gcd = i;
-    }
-    return gcd;
+// Function to find gcd of array of
+// numbers
+int findGCD(int arr[], int n)
+{
+    int result = arr[0];
+    for (int i = 1; i < n; i++)
+        result = gcd(arr[i], result);
+
+    return result;
 }
 
 int main()
 {
-    // First create an instance of an engine.
-    random_device rnd_device;
-    // Specify the engine and distribution.
-    mt19937 mersenne_engine{ rnd_device() };  // Generates random integers
-    uniform_int_distribution<int> dist{ 1, 100 };
+    //int arr[] = { 8, 4, 12, 24 };
+    int arr[10];
+    random_device rd;
+    default_random_engine dre(rd());
+    uniform_int_distribution<int> uid(1, 100);
 
-    auto gen = [&dist, &mersenne_engine]() {
-        return dist(mersenne_engine);
-    };
-
-    vector<int> vec(10);
-    generate(begin(vec), end(vec), gen);
+    generate(arr, arr + sizeof(arr) / sizeof(int), [&]() { return uid(dre); });
 
     cout << "Array: \n";
 
-    for (auto i : vec) {
-        cout << i << " ";
-    }
+    for (int a : arr)
+        cout << a << " ";
 
-    cout << "\n\n";
+    int n = sizeof(arr) / sizeof(arr[0]);
+    cout << "\n\n" << "Answer: " << findGCD(arr, n) << endl;
 
-    int gcd = findGCD(vec);
-
-
-    cout << "Answer: " << gcd << "\n";
+    return 0;
 }
