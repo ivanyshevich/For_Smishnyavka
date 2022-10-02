@@ -38,8 +38,10 @@ int main()
     cout << "Array: \n";
 
     for (int a : arr)
-        if (a == 0)
+        if (a == 0){
             cout << "Cannot have 0 within the array";
+            break;
+        }
         else
             cout << a << " ";
 
