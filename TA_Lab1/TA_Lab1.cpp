@@ -1,4 +1,4 @@
-﻿#include <random>
+#include <random>
 #include <algorithm>
 #include <iterator>
 #include <iostream>
@@ -38,7 +38,10 @@ int main()
     cout << "Array: \n";
 
     for (int a : arr)
-        cout << a << " ";
+        if (a == 0)
+            cout << "Cannot have 0 within the array";
+        else
+            cout << a << " ";
 
     int n = sizeof(arr) / sizeof(arr[0]);
     cout << "\n\n" << "Answer: " << findGCD(arr, n) << endl;
