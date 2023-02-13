@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "9MJdvUIGry0lIYyTqmDN6aVVNfm41BVg095HniL1eSuO7zrfAM+jkkOnVpPtSIwf9+MW3uAnc7eFS/GWqtrxsQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\admin\\source\\repos\\ArrayExample\\ArrayExample.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
